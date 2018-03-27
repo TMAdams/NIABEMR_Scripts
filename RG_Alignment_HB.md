@@ -19,5 +19,5 @@ Reference=/home/sobczm/popgen/rnaseq/fvesca_v1.1_all.fa
 Reads=RG_Gridion_Top40.fastq.gz
 Output=Aligned_Reads
 # Place job into submission queue to be run when space available
-qsub Bwa_Single_File $PWD $Reference $Reads $Output
+qsub Bwa_Single_File.sh $PWD $Reference $Reads $Output
 ```
