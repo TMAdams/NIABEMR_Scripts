@@ -14,26 +14,10 @@ adamst@149.155.34.72:/home/adamst/Gridion_check_HB/.
 ## Align reads using BWA-mem
 
 ```bash
-# Use a screen session to persist after logout
-screen -a
-
-# Run on any except blacklace01 or blacklace11
-qlogin -pe smp 12 -l virtual_free=1G
-
-# Move to directory where copied files are
-cd Gridion_check_HB
-
-# Specify location of reads and genome
+# Set variables for submitting script
 Reference=/home/sobczm/popgen/rnaseq/fvesca_v1.1_all.fa
 Reads=RG_Gridion_Top40.fastq.gz
-# Copy genome to current location
-cp $Reference .
-# Make an index file needed for alignment
-bwa index $Reference
-# Run alignment and create a bam file
-bwa mem -M -t 12 $Reference $Reads | samtools view -S -b - > Aligned_Reads.bam
-# Create an index file needed to load into some viewers (eg. IGV)
-samtools index Aligned_Reads.bam
-# Remove files created during run
-rm $Reference
+Output=Aligned_Reads
+# Place job into submission queue to be run when space available
+qsub Bwa_Single_File $PWD $Reference $Reads $Output
 ```
