@@ -6,7 +6,7 @@
 #$ -l h=blacklace03.blacklace|blacklace04.blacklace|blacklace05.blacklace|blacklace06.blacklace|blacklace07.blacklace|blacklace08.blacklace|blacklace09.blacklace|blacklace10.blacklace
 
 # Move to directory where copied files are
-cd Gridion_check_HB
+cd Gridion_check_HB || exit
 
 # Specify location of reads and genome
 Reference=/home/sobczm/popgen/rnaseq/fvesca_v1.1_all.fa
