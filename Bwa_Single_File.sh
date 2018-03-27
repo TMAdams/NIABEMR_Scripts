@@ -6,18 +6,20 @@
 #$ -l h=blacklace03.blacklace|blacklace04.blacklace|blacklace05.blacklace|blacklace06.blacklace|blacklace07.blacklace|blacklace08.blacklace|blacklace09.blacklace|blacklace10.blacklace
 
 # Move to directory where copied files are
-cd Gridion_check_HB || exit
+cd $1 || exit
 
 # Specify location of reads and genome
-Reference=/home/sobczm/popgen/rnaseq/fvesca_v1.1_all.fa
-Reads=RG_Gridion_Top40.fastq.gz
+Reference=$2
+Reads=$3
+Output=$4
 # Copy genome to current location
 cp $Reference .
+cp $Reads .
 # Make an index file needed for alignment
 bwa index $Reference
 # Run alignment and create a bam file
-bwa mem -M -t 12 $Reference $Reads | samtools view -S -b - > Aligned_Reads.bam
+bwa mem -M -t 12 $Reference $Reads | samtools view -S -b - > "$Output".bam
 # Create an index file needed to load into some viewers (eg. IGV)
-samtools index Aligned_Reads.bam
+samtools index "$Output".bam
 # Remove files created during run
 rm $Reference
