@@ -18,8 +18,11 @@ cp $Reads .
 # Make an index file needed for alignment
 bwa index $Reference
 # Run alignment and create a bam file
-bwa mem -M -t 12 $Reference $Reads | samtools view -S -b - > "$Output".bam
+bwa mem -M -t 12 $Reference $Reads | samtools view -S -b - > "$Output"_unsorted.bam
+# Sort bam file before indexing
+samtools sort -@ 16  "$Output"_unsorted.bam -o "$Output".bam
 # Create an index file needed to load into some viewers (eg. IGV)
 samtools index "$Output".bam
 # Remove files created during run
 rm $Reference
+rm "$Output"_unsorted.bam
