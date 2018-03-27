@@ -2,6 +2,8 @@
 
 ## Copy file of sample reads onto cluster
 
+Sample reads were taken as largest 40 in file using Geneious
+
 ```bash
 # Run from local machine - Mac OSX 10.13.3
 
