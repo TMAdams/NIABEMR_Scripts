@@ -18,7 +18,7 @@ ap.add_argument('--input', required=True, type=str, help='Input csv for \
                 parsing')
 ap.add_argument('--output', required=True, type=str, help='Filename to output \
                 parsed file to')
-conf = ap.argparse()
+conf = ap.parse_args()
 
 # -----------------------------------------------------
 # Step 2
