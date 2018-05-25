@@ -27,8 +27,8 @@ conf = ap.parse_args()
 
 Input_List = conf.inputs
 
-for Input in Input_List:
-    with open(conf.output, 'w') as o:
+with open(conf.output, 'w') as o:
+    for Input in Input_List:
         with open(Input) as f:
             reader = csv.reader(f)
             next(reader, None)
