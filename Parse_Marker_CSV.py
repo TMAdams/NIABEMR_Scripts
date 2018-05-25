@@ -2,7 +2,7 @@
 
 '''
 Script written for Charlotte to parse a csv of marker information
-to a format for MQM
+to a format for MQM, run on local machine, macbook
 '''
 
 # -----------------------------------------------------
