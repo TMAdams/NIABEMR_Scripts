@@ -7,7 +7,7 @@ to a format for MQM
 
 # -----------------------------------------------------
 # Step 1
-# Load modules and parse input files
+# Load modules and parse arguments
 # -----------------------------------------------------
 
 import argparse
@@ -18,3 +18,8 @@ ap.add_argument('--input', required=True, type=str, help='Input csv for \
 ap.add_argument('--output', required=True, type=str, help='Filename to output \
                 parsed file to')
 conf = ap.argparse()
+
+# -----------------------------------------------------
+# Step 2
+# Perform parsing and write out file
+# -----------------------------------------------------
